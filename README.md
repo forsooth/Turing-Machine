@@ -32,7 +32,7 @@ or, if the terminal background is white or another light color:
 
 Note that box-drawing characters may not display correctly in this window due to the browser; rest assured that all characters line up in a true monospaced environment.
 
-<a href="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J?autoplay=1" target="_blank" style="text-align: center"><img src="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J.png" width="400"/></a>
+[![asciicast](https://asciinema.org/a/C8dbwZ4XOvHEqKGjYBJCnUMt7.png)](https://asciinema.org/a/C8dbwZ4XOvHEqKGjYBJCnUMt7)
 
 Return codes are as follows:
 * If the machine runs until it reaches its accept state, the exit code is 0. 
