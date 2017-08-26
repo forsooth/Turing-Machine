@@ -8,17 +8,11 @@ This is an interpreter for a Turing machine. This program grew out of a question
 I may come back to this project to make improvements in the future, but for now this is simply an inactive storage unit for the product of that week of work.
 
 
-# Documentation
-
-This file comprises the main documentation; an 80-column README.txt file can also be found in the `doc/` directory. The definition of the file format defining a Turing machine can also be found in the `doc/` directory, as `.tex` and compiled `.pdf`.
-
-
 # Representation
 
 In the Sipser definition of a Turing machine, the machine is a 7-tuple consisting of a set of states, a tape alphabet, an input alphabet, a start state, a transition function, an accept state, and a reject state.
 
 In this Python implementation, the machine internally is essentially the formally defined 7-tuple (with some additional fluff for convenience). The tape is represented as a doubly-linked list so that the internal representation is no more knowledgable about the state than the abstract turing machine it is representing and simulating. Thetransition function is a dictionary mapping some state and bit to some new state, new bit, and direction.
-
 
 # Usage
 
