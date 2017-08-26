@@ -2,26 +2,22 @@
 Author: Matt Asnes, 2017
 
 # About
-
 This is an interpreter for a Turing machine. This program grew out of a question posed in a problem set, in which students were to define a Turing machine by hand in a particular syntax. This machine was to solve a certain decision problem, however I found that it was fairly easy to write a Turing machine interpreter over the course of a day or two to verify my answer; this is the result of that work, plus a week or so of fiddling with UI, adding colors, cleaning up documentation, refactoring for more readability, etc.
 
 I may come back to this project to make improvements in the future, but for now this is simply an inactive storage unit for the product of that week of work.
 
 
 # Documentation
-
 This file comprises the main documentation; an 80-column README.txt file can also be found in the `doc/` directory. The definition of the file format defining a Turing machine can also be found in the `doc/` directory, as `.tex` and compiled `.pdf`.
 
 
 # Representation
-
 In the Sipser definition of a Turing machine, the machine is a 7-tuple consisting of a set of states, a tape alphabet, an input alphabet, a start state, a transition function, an accept state, and a reject state.
 
 In this Python implementation, the machine internally is essentially the formally defined 7-tuple (with some additional fluff for convenience). The tape is represented as a doubly-linked list so that the internal representation is no more knowledgable about the state than the abstract turing machine it is representing and simulating. Thetransition function is a dictionary mapping some state and bit to some new state, new bit, and direction.
 
 
 # Usage
-
 This Turing machine interpreter runs in Python 3. The program can be executed in its most basic form as follows in its simplest variety:
 ```$> python3 main.py -m ../path/to/turing_machine```
 
@@ -65,13 +61,11 @@ The command line options & flags are as follows:
 
 
 # Compatiblity
-
 This program is meant to be run in the Python 3 interpreter. Testing has only been carried out on Python 3.4.5 on Windows. Output is printed using high-ASCII and unicode characters, and support for these features is anticipated. Output is colorized using ANSI escape codes, and animation relies on the ANSI terminal traversal codes to rewrite the screen; as such, support for this feature is expected for full functionality. 
 
 Behavior in an environment which does not meet these criteria is undefined, as no attempt is made to recover from errors pertaining to these things.
 
 # Errors
-
 Each error has its own exit code, which are present in parentheses before their
 description below:
 
@@ -118,7 +112,6 @@ treated as such by this program are as follows:
 * Comments and other lines in the file are not checked for non-ASCII characters
 
 # Dependencies
-
 From the core python libraries, this program depends on:
 
 | Library  | Need
@@ -131,18 +124,18 @@ From the core python libraries, this program depends on:
 There are no external dependencies.
 
 # Modules
-
 The following modules are included in this program:
-main.py       Parses command line arguments and initializes data structures.
-tape.py       Represents a Turing machine tape as a doubly linked list.
-tm.py         Creates and runs a Turing machine.
-colors.py     Contains single-point of truth colors for customization.
-README        This README file, in both .txt and .md formats
+| Module       | Description
+|--------------|----------------------------------------------------
+| main.py      | Parses command line arguments and initializes data structures.
+| tape.py      | Represents a Turing machine tape as a doubly linked list.
+| tm.py        | Creates and runs a Turing machine.
+| colors.py    | Contains single-point of truth colors for customization.
+| README       | This README file, in both .txt and .md formats
 
 # Example Output
-
 ```
-$> python3 main.py -m ../hw2/p3.txt --debug 2
+$> python3 main.py -m ../machine.txt --debug 2
 Input:
 01
 ┌─────────────┬─────────┬──────────┬─────────────┬─────────────┐
@@ -174,7 +167,6 @@ Input:
 ```
 
 # TODO
-
 - [ ] Print comments above state
 - [ ] Allow left and right arrow keys step through (allow backwards stepping)
 - [ ] Pretty-print table of states

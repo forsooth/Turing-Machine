@@ -5,14 +5,7 @@ Turing Machine Interpreter & Debugger
 ABOUT
 ===============================================================================
 
-This is an interpreter for the Turing machine syntax required for COMP 170. 
-
-If the machine runs until it reaches its accept state, the exit code is 0. 
-If it rejects, the exit code is 1. 
-If it halts after running for a period and aborting, it exits 2.
-If the help page is displayed (-h OR --help) it exits 3.
-If CTRL+C (SIGINT) is sent, it safely exits Python with code 130.
-In error cases, the program exits with a code higher than 2.
+This is an interpreter for the Turing machine syntax defined in a particular problem set given to me in class.
 
 ===============================================================================
 REPRESENTATION
@@ -31,13 +24,20 @@ USAGE
 
 This Turing machine interpreter runs in Python 3. The program can be 
 executed in its most basic form as follows in its simplest variety:
-        >>> python3 main.py -m ../path/to/turing_machine
+        $> python3 main.py -m ../path/to/turing_machine
 
-for COMP-170 TAs, a suggested usage would be:
-        >>> python3 main.py -m ./machine -t ./tape -d 2 -i -a
+for class TAs, a suggested usage would be:
+        $> python3 main.py -m ./machine -t ./tape -d 2 -i -a
 
 or, if the terminal background is white / a light color:
-        >>> python3 main.py -m ./machine -t ./tape -d 2 -i -a -n
+        $> python3 main.py -m ./machine -t ./tape -d 2 -i -a -n
+
+If the machine runs until it reaches its accept state, the exit code is 0. 
+If it rejects, the exit code is 1. 
+If it halts after running for a period and aborting, it exits 2.
+If the help page is displayed (-h OR --help) it exits 3.
+If CTRL+C (SIGINT) is sent, it safely exits Python with code 130.
+In error cases, the program exits with a code higher than 2.
 
 The command line options & flags are as follows:
 
@@ -51,7 +51,7 @@ TYPE: STRING
 REQUIREMENTS: must be a valid path
 DESCRIPTION:
 Required option, specifies the Turing machine file as specified
-in the COMP-170 course page and homework. File type does not matter. The
+in the class course page and homework. File type does not matter. The
 argument following this option should be the path to the file.
 
 OPTION: -t OR --tape
@@ -221,7 +221,7 @@ TURING MACHINE (tm.py): -------------------------------------------------------
 but it was a character other than 'L' or 'R'.
 
 -------------------------------------------------------------------------------
-Errors which are specified by the COMP-170 Turing machine spec, but are not
+Errors which are specified by the class Turing machine spec, but are not
 treated as such by this program:
 -------------------------------------------------------------------------------
 
@@ -261,7 +261,7 @@ README        This README file
 EXAMPLE
 ===============================================================================
 
----> python3 main.py -m ../hw2/p3.txt --debug 2
+$> python3 main.py -m ./machine --debug 2
 Input:
 01
 ┌─────────────┬─────────┬──────────┬─────────────┬─────────────┐
