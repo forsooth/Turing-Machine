@@ -1,0 +1,11 @@
+NAME: Matt Asnes
+STATE: q0
+SIGMA: 0 1
+GAMMA: 0 1 B
+START: q0
+ACCEPT: qa
+REJECT: qr
+
+DELTA:
+q0 B q0 1 R
+END

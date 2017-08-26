@@ -1,0 +1,31 @@
+
+NAME: Ben Hescott
+STATE: q0 q1 q2 q3 qa qr
+SIGMA: 0 1
+GAMMA: 0 1 B 0x 1x
+START: q0
+ACCEPT: qa
+REJECT: qr
+DELTA:
+; q0 mark a zero and move to find a matching 1, 
+; if empty accept, if when trying to find a 0 only get a 1
+; reject
+q0 B qa
+q0 0 q1 0x R
+q0 1 qr
+q0 1x q3 1x R
+; loop to find a 1 and mark it
+q1 0 q1 0 R
+q1 1 q2 1x L
+q1 B qr
+q1 1x q1 1x R
+; loop back to start to find first unmarked 0
+q2 0 q2 0 L
+q2 1x q2 1x L
+q2 0x q0 0x R 
+; final check all marked, and the right form.
+q3 0 qr
+q3 1 qr
+q3 1x q3 1x R
+q3 B qa
+END

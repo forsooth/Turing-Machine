@@ -1,0 +1,70 @@
+NAME: Matt Asnes
+STATE: q0 qo1 qrb qck qi1 qm qm0 qc qlo1 qlo2 qli1 qli2 qa qr
+SIGMA: 0 1
+GAMMA: 0 1 0x 1x B
+START: q0
+ACCEPT: qa
+REJECT: qr
+
+DELTA:
+; Initial state; rejects on blank, checks next char for 0 or 1.
+q0 0 qo1 0x R
+q0 1 qi1 1x R 
+q0 B qr
+; If initial state found a 0, and now finds a 0, we have a pair
+; If initial state found a 0 and now finds a 1, the only non-rejecting
+; situations are if we are done; we pass to qrb to check. the chars
+; 0x and 1x are used as 'marked' 0's and 1's respectively.
+qo1 0 qm 0x R
+qo1 1 qrb 1x R
+; if the character to the right is a blank (the case where our
+; input was just '01'), we accept. If it was an 0x or 1x, we need
+; to check that there is no extraneous input at the end.
+qrb B qa
+qrb 0x qck 0x R
+qrb 1x qck 1x R
+; If we are doing a final pass through the 0x/1x sequence, reject if
+; we see a 0 or 1, and accept only if we get through a series of 
+; just 0x and 1x chars, and then see a blank.
+qck 0x qck 0x R
+qck 1x qck 1x R
+qck B qa
+; If at the beginning we saw a 1, ensure the next character was a 1.
+; Otherwise, reject.
+qi1 1 qm 1x R
+; This state is for the middle section of the program, where we want
+; to hunt down the '01' segment of the input without changing anything.
+qm 1 qm 1 R
+qm 0 qm0 0 R
+qm0 0 qm 0 R
+qm0 1 qc 1 R
+; At this state, we have just passed the '01' and need to pass by any
+; 0x or 1x chars we have previously written. When we find a 0 or 1, just
+; replace it with it's marked equivalent and start going back to the
+; beginning of the tape.
+qc 0 qlo1 0x L
+qc 1 qli1 1x L
+qc 0x qc 0x R
+qc 1x qc 1x R
+; These four states serve similar purposes; first, we are in either qlo1
+; or qli1, going backwards through the 0x's and 1x's; we want to ignore 
+; them, and when we reach the first 0 or 1, go to a state that is looking
+; for them (qlo2 or qli2). These states are going backwards, and if qlo2
+; finds an 1x it rejects; if it finds a 0x, it loops back to q0. qli2 does
+; the same, but for 0x instead of 1x and vice versa.
+qlo1 0 qlo2 0 L
+qlo1 1 qlo2 1 L
+qlo1 0x qlo1 0x L
+qlo1 1x qlo1 1x L
+qlo2 0 qlo2 0 L
+qlo2 1 qlo2 1 L
+qlo2 0x q0 0x R
+qli1 0 qli2 0 L
+qli1 1 qli2 1 L
+qli1 0x qli1 0x L
+qli1 1x qli1 1x L
+qli2 0 qli2 0 L
+qli2 1 qli2 1 L
+qli2 1x q0 1x R
+
+END
