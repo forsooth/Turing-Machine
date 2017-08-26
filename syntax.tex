@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\renewcommand{\theenumi}{\roman{enumi}}
+\usepackage[makeroom]{cancel}
+\setlength{\parindent}{0cm} 
+
+\title{}
+
+\begin{document}
+
+\section*{Turing Machine Syntax}
+
+\begin{enumerate}[1]
+\item NAME, STATE, SIGMA, GAMMA, START, ACCEPT, REJECT are all one line each, are each followed by a colon (:), and must all be present.
+\item States can be a sequence of printable ASCII characters that do \emph{\textbf{NOT}} contain whitepace or quotes.
+\begin{itemize}
+\item q0, q1, q3, q1\# are all fine
+\item q\_Looking\_for\_a\_one is legal, but frowned upon
+\item ``q state here'' is illegal and will confuse the Turing Machine
+\end{itemize}
+\item Elements of Sigma must be single characters of printable ASCII characters that are \emph{\textbf{NOT}} whitespace or quotes.
+\begin{itemize}
+\item 0, 1, B, X, Y are all fine
+\item ``Crossed one out'', \cancel{0}, \cancel{1}, 0x, 1x are all illegal and will confuse the Turing Machine
+\end{itemize}
+\item Elements of Gamma can be a sequence of printable ASCII characters that are \emph{\textbf{NOT}} whitespace or quotes. For clarity, do \emph{\textbf{NOT}} reuse the names for states.
+\begin{itemize}
+\item 0, 1, B, 1x, 0x, X, Y are all fine
+\item ``Crossed one out'', \cancel{0}, \cancel{1} are all illegal and will confuse the Turing Machine
+\end{itemize}
+\item The blank character \emph{\textbf{MUST}} be B.
+\item Recall delta is $Q\times\Gamma\rightarrow Q\times\Gamma\times\{L, R\}$
+\item Each line has one transition. Each part of the transition is separated by whitespace. L means head moves left. R means head moves right.
+\item A transition to an accept or reject state does not need to write to the tape or move the head. All other transitions do write to the tape AND move the head.
+\item Any transitions not written in Delta will be treated as transitioning to the reject state.
+\item Delta must end with END on a single line.
+\item Anything after END will not be read by the simulator, so feel free to explain the machine and its states.
+\item You may include comments in the code. A comment is on a line of its
+own starting with a semicolon.
+\end{enumerate}
+
+\pagebreak
+
+\texttt {NAME: Ben Hescott}
+
+\texttt{STATE: q0 q1 qa qr}
+
+\texttt{SIGMA: 0 1}
+
+\texttt{GAMMA: 0 1 B}
+
+\texttt{START: q0}
+
+\texttt{ACCEPT: qa}
+
+\texttt{REJECT: qr}
+
+\texttt{DELTA:}
+
+\texttt{q0 0 q0 0 R}
+
+\texttt{q0 1 q1 1 R}
+
+\texttt{q0 B qr}
+
+\texttt{; This is a comment}
+
+\texttt{q1 0 q1 0 R}
+
+\texttt{q1 1 qa}
+
+\texttt{q1 B qr}
+
+\texttt{END}
+
+\vspace{2mm}
+
+\texttt{Comment however you like down here.}
+
+\texttt{This recognizes L = \{w | w a binary string with two ones\}}
+
+\texttt{q0 is the state where we see no ones.}
+
+\texttt{q1 is the state where we see a one.}
+
+\end{document}
