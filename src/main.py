@@ -11,7 +11,7 @@ def catch_ctrl_c(signal, frame):
 
 signal.signal(signal.SIGINT, catch_ctrl_c)
 
-parser = argparse.ArgumentParser(description="COMP-170 Turing Machine Interpreter.", add_help=False)
+parser = argparse.ArgumentParser(description="Interactive Turing Machine Interpreter and Debugger.", add_help=False)
 
 # Setting up command line flags and options. 
 parser.add_argument('-m', '--machine', type=str, help="Required argument, followed by the path to the file specifying the machine.")
