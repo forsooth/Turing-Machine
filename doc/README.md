@@ -32,7 +32,7 @@ or, if the terminal background is white or another light color:
 
 Note that box-drawing characters may not display correctly in this window due to the browser; rest assured that all characters line up in a true monospaced environment.
 
-[![asciicast](https://asciinema.org/a/C8dbwZ4XOvHEqKGjYBJCnUMt7.png)](https://asciinema.org/a/C8dbwZ4XOvHEqKGjYBJCnUMt7)
+[![asciicast](https://asciinema.org/a/7XgNpUkg5cnPkWdLJVO2V1AI6.png)](https://asciinema.org/a/7XgNpUkg5cnPkWdLJVO2V1AI6)
 
 Return codes are as follows:
 * If the machine runs until it reaches its accept state, the exit code is 0. 
@@ -170,6 +170,15 @@ Input:
 ┌───┬───╔═▼═╗────
 │ o │ i ║ B ║ ···
 └───┴───╚═▲═╝────
+
+pre,
+code,
+kbd,
+samp,
+tt{
+  font-family:monospace,monospace;
+  font-size:1em;
+}
 
 ┌────────────────────┐
 │ ┌─┐┌─┐┌─┐┌─┐┌─┐┌┬┐ │
