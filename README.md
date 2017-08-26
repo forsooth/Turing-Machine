@@ -28,7 +28,7 @@ for TAs for the class attempting to keep strictly to standard and also to unders
 or, if the terminal background is white or another light color:
 ```$> python3 main.py -m ./machine -t ./tape -d 2 -i -a -n```
 
-<a href="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J?autoplay=1" target="_blank"><img src="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J.png" width="835"/></a>
+<a href="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J?autoplay=1" target="_blank"><img src="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J.png" width="400"/></a>
 
 Return codes are as follows:
 * If the machine runs until it reaches its accept state, the exit code is 0. 
