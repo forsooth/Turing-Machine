@@ -28,7 +28,11 @@ for TAs for the class attempting to keep strictly to standard and also to unders
 or, if the terminal background is white or another light color:
 ```$> python3 main.py -m ./machine -t ./tape -d 2 -i -a -n```
 
-<a href="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J?autoplay=1" target="_blank"><img src="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J.png" width="400"/></a>
+### Demo
+
+Note that box-drawing characters may not display correctly in this window due to the browser; rest assured that all characters line up in a true monospaced environment.
+
+<a href="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J?autoplay=1" target="_blank" style="text-align: center"><img src="https://asciinema.org/a/S9VDDD7fEayrubTK7GdWWKU3J.png" width="400"/></a>
 
 Return codes are as follows:
 * If the machine runs until it reaches its accept state, the exit code is 0. 
@@ -128,6 +132,7 @@ There are no external dependencies.
 
 # Modules
 The following modules are included in this program:
+
 | Module       | Description
 |--------------|----------------------------------------------------
 | main.py      | Parses command line arguments and initializes data structures.
@@ -137,6 +142,10 @@ The following modules are included in this program:
 | README       | This README file, in both .txt and .md formats
 
 # Example Output
+
+Note that box-drawing characters may not display correctly in this window due to the browser; rest assured that all characters line up in a true monospaced environment.
+
+
 ```
 $> python3 main.py -m ../machine.txt --debug 2
 Input:
